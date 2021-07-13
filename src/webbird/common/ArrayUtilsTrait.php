@@ -15,11 +15,10 @@ trait ArrayUtilsTrait
      */
     public function prependToKeys(array $arr, string $prepend) : array
     {
-        $prepended = array_combine(
+        return array_combine(
             array_map(function($key) use ($prepend) { return $prepend.$key; }, array_keys($arr)),
             $arr
         );
-        return $prepended;
     }
     
     /**
@@ -31,11 +30,10 @@ trait ArrayUtilsTrait
      */
     public function appendToKeys(array $arr, string $append) : array
     {
-        $appended = array_combine(
+        return array_combine(
             array_map(function($key) use ($append) { return $append.$key; }, array_keys($arr)),
             $arr
         );
-        return $appended;
     }
     
     /**
@@ -52,11 +50,10 @@ trait ArrayUtilsTrait
      */
     public function wrapKeys(array $arr, string $wrap) : array
     {
-        $wrapped = array_combine(
+        return array_combine(
             array_map(function($key) use ($wrap) { return $wrap.$key.$wrap; }, array_keys($arr)),
             $arr
         );
-        return $wrapped;
     }
     
     /**
