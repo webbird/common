@@ -7,6 +7,59 @@ namespace webbird\common;
 trait ArrayUtilsTrait
 {
     /**
+     * prepend a string to every key
+     * 
+     * @param array $arr
+     * @param string $prepend
+     * @return array
+     */
+    public function prependToKeys(array $arr, string $prepend) : array
+    {
+        $prepended = array_combine(
+            array_map(function($key) use ($prepend) { return $prepend.$key; }, array_keys($arr)),
+            $arr
+        );
+        return $prepended;
+    }
+    
+    /**
+     * append a string to every key
+     * 
+     * @param array $arr
+     * @param string $append
+     * @return array
+     */
+    public function appendToKeys(array $arr, string $append) : array
+    {
+        $appended = array_combine(
+            array_map(function($key) use ($append) { return $append.$key; }, array_keys($arr)),
+            $arr
+        );
+        return $appended;
+    }
+    
+    /**
+     * wrap every key into string
+     * 
+     * Example: 
+     *     Key   : 'key'
+     *     Wrap  : '%'
+     *     Result: '%key%'
+     * 
+     * @param array $arr
+     * @param string $wrap
+     * @return array
+     */
+    public function wrapKeys(array $arr, string $wrap) : array
+    {
+        $wrapped = array_combine(
+            array_map(function($key) use ($wrap) { return $wrap.$key.$wrap; }, array_keys($arr)),
+            $arr
+        );
+        return $wrapped;
+    }
+    
+    /**
      * sort an array
      *
      * @access public
