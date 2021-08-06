@@ -1,0 +1,16 @@
+{
+    "name": "webbird/common",
+    "type": "standard",
+    "description": "",
+    "license": "",
+    "require": {
+    },
+    "require-dev": {
+        "psalm/phar": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "webbird\\common\\": "src/webbird/common/"
+        }
+    }
+}
