@@ -2,13 +2,9 @@
 
 declare(strict_types=1);
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace webbird\common;
+
+use Sirius\Validation\Validator As Validator;
 
 /**
  * Description of ValidatorTrait
@@ -17,6 +13,46 @@ namespace webbird\common;
  */
 trait ValidatorTrait 
 {
+    protected static \Sirius\Validation\Validator $v;
+    
+    /**
+     * accessor to Sirius\Validation\Validator
+     * 
+     * @param type $selector
+     * @param type $name
+     * @param type $options
+     * @param type $messageTemplate
+     * @param type $label
+     * @return type
+     */
+    public function add(
+        $selector, 
+        $name = null, 
+        $options = null, 
+        $messageTemplate = null, 
+        $label = null
+    )
+    {
+        if(!is_object(self::$v)) {
+            self::$v = new Validator();
+        }
+        return self::$v->add($selector,$name,$options,$messageTemplate,$label);
+    }
+    
+    /**
+     * accessor to Sirius\Validation\Validator
+     * 
+     * @param mixed $data
+     * @return type
+     */
+    public function validate(mixed $data=null)
+    {
+        if(!is_object(self::$v)) {
+            self::$v = new Validator();
+        }
+        return self::$v->validate($data);
+    }
+    
     /**
      * 
      * @param string $path
