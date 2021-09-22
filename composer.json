@@ -4,6 +4,7 @@
     "description": "",
     "license": "",
     "require": {
+        "siriusphp/validation": "^1.0"
     },
     "require-dev": {
         "psalm/phar": "*"
