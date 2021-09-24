@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "webbird\\common\\": "src/webbird/common/"
+            "webbird\\common\\": "src/"
         }
     }
 }
